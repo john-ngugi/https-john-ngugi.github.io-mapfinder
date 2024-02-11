@@ -84,3 +84,34 @@ label {
     font-size: 18px;
     color: black;
 }
+
+@media screen and (max-width:768px){
+
+    .all-body {
+        display: block;
+        width: 100vw;
+        height: 70%;
+        margin-top: 0%;
+    }
+    #map {
+        height: 585PX;
+        width: 100%;
+        float: right;
+        padding-right: 18px;
+    }
+    
+    .inputs {
+        float: left;
+        width: 100%;
+        display: block;
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+        height: 300px;
+    }
+
+    .querries {
+        margin-top: 10px;
+    }
+    
+}
