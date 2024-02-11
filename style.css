@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@300&display=swap');
+.all-body {
+    display: inline-flex;
+    width: 100vw;
+    height: 70%;
+    margin-top: 0%;
+}
+
+#map {
+    height: 585PX;
+    width: 79.5%;
+    float: right;
+    padding-right: 18px;
+}
+
+.inputs {
+    float: left;
+    width: 20%;
+    display: block;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    height: 585px;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-size: 18px;
+}
+
+.inputs input {
+    border: 2px solid #17a2b8;
+    border-radius: 20px 50px;
+    text-align: center;
+}
+
+.inputs input:focus {
+    border: 2px solid #17a2b8;
+    text-align: center;
+    outline: none;
+    border: 1px solid green;
+}
+
+.inputs input:hover {
+    border: green;
+    outline: none;
+    border: 2px solid green;
+}
+
+.querries {
+    margin-top: 200px;
+}
+
+#btn {
+    margin-top: 30px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #17a2b8;
+    outline: #17a2b8;
+    border: none;
+    height: 35px;
+}
+
+#btn:hover {
+    background-color: green;
+}
+
+.title {
+    background-color: #17a2b8;
+    font-family: 'Luckiest Guy', cursive;
+    margin-bottom: 0%;
+}
+
+.title p {
+    font-size: 40px;
+    color: white;
+    padding-left: 30px;
+}
+
+#msg {
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: black;
+}

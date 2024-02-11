@@ -1,0 +1,56 @@
+<!-- This is the beginning of the HTML document -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Head section contains meta information about the document -->
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Browser compatibility -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings for responsive design -->
+    <title>Document</title> <!-- Title of the document -->
+    <!-- Links to external CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <!-- Links to external JavaScript files -->
+    <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/c4e0f4710c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Body section contains visible content of the document -->
+    <div class="title">
+        <!-- Title of the page with an icon -->
+        <p>map finder <i class="fa-solid fa-magnifying-glass "></i></p>
+    </div>
+
+    <div class="all-body">
+        <!-- Container for the main content -->
+        <div class="inputs">
+            <!-- Container for input fields and button -->
+            <div class="querries">
+                <!-- Labels and input fields for entering coordinates -->
+                <label for="x-coordinates">enter x coordinates:</label>
+                <br class="break">
+                <input type="number" name="number" id="x-coordinates" placeholder="x-coordinates">
+                <br class="break">
+                <label for="y-coordinates">enter y coordinates:</label>
+                <br class="break">
+                <input type="number" name="number" id="y-coordinates" placeholder="y-coordinates">
+                <br class="break">
+                <!-- Button for triggering coordinate search -->
+                <button type="submit" id="btn">find me! <i class="fa-solid fa-right-long"></i></button>
+                <!-- Container for displaying messages -->
+                <div id="msg"></div>
+            </div>
+        </div>
+        <!-- Container for displaying the map -->
+        <div id="map"></div>
+    </div>
+</body>
+<!-- External JavaScript file for handling page functionality -->
+<script src="script.js"></script>
+
+</html>
+<!-- This is the end of the HTML document -->
