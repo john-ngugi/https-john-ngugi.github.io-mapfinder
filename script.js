@@ -55,12 +55,12 @@ map.on('click', function(e) {
     var long = roundTo(popLocation.lng,2);
     var result ;
     // Fetch reverse geocoding information and country details using Geoapify and Restcountries APIs
-    fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&format=json&apiKey=process.env.API_KEY_geoapify`)
+    fetch(`https://geocode.maps.co/reverse?lat=${lat}&lon=${long}&api_key=658eee18a9d00961635940cisab19fd`)
     .then(response => response.json())
     .then(data =>{
-          result = data.results[0].address_line1
-          country_result = data.results[0].country
-          console.log(result)
+          result = data.display_name
+          country_result = data.address.country
+          console.log(data)
           console.log(country_result)
           fetch(`https://restcountries.com/v3.1/name/${country_result}?fullText=true`)
           .then(response => response.json())
