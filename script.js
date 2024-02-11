@@ -3,11 +3,24 @@ const xCoords = document.getElementById('x-coordinates');
 const yCoords = document.getElementById('y-coordinates');
 const button = document.getElementById('btn');
 var msg = document.getElementById('msg');
+var marker = new Array();
 
 // Initial latitude and longitude values
 var lat = 0.02;
 var long = 36.90;
 var result ;
+
+function zoomAnimation(){
+    var sleepSetTimeout_ctrl;
+
+    function sleep(ms) {
+        clearInterval(sleepSetTimeout_ctrl);
+        return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+    }
+
+
+}
+
 
 function createPopups(lat,long){
   
@@ -87,6 +100,47 @@ map.on('click', function(e) {
     // Round latitude and longitude to 2 decimal places
             console.log(popLocation)    
             createPopups(lat,long)
+            const url = `https://map-places.p.rapidapi.com/nearbysearch/json?location=${lat}%2C${long}&radius=1500&keyword=attraction&type=park`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': '292773086dmsh5f85c14ffe2e718p107ceajsn4d0a25257c45',
+                    'X-RapidAPI-Host': 'map-places.p.rapidapi.com'
+                }
+            };
+            
+            try {
+                fetch(url, options)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('tours Data',data);
+                    // Remove existing markers from the map
+                    marker.forEach(mark => {
+                        map.removeLayer(mark);
+                    });
+                    marker = []; // Clear the marker array
+                    
+                    // Add new markers from fetched data
+                    data.results.forEach(result => {
+                        console.log(result);
+                        var lat = result.geometry.location.lat;
+                        var long = result.geometry.location.lng;
+                        var customIcon = L.icon({
+                            iconUrl: result.icon,    
+                            iconSize:     [38, 45], // size of the icon
+                            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+                        });
+                        var currentMarker = new L.marker([lat, long],{icon: customIcon}).addTo(map);
+                        marker.push(currentMarker); // Add marker to the array
+                        
+                        currentMarker.addTo(map); // Add marker to the map
+                    });
+                });
+           
+            } catch (error) {
+                console.error(error);
+            }
             // Update message to display the new coordinates
             msg.innerHTML = `The coordinates are now:</br> latitude: ${lat}°</br>longitude: ${long}°`
       })
