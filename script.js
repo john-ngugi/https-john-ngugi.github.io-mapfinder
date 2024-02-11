@@ -55,7 +55,7 @@ map.on('click', function(e) {
     var long = roundTo(popLocation.lng,2);
     var result ;
     // Fetch reverse geocoding information and country details using Geoapify and Restcountries APIs
-    fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&format=json&apiKey=d548c5ed24604be6a9dd0d989631f783`)
+    fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&format=json&apiKey=process.env.API_KEY_geoapify`)
     .then(response => response.json())
     .then(data =>{
           result = data.results[0].address_line1
